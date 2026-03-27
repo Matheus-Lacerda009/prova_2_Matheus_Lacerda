@@ -42,7 +42,14 @@ function resistores(){
         }
         resistencia = parseInt(resistencia) * multiplicador[prompt("Insira a cor da " + (i + 1) + " faixa:\nEscolha entre:\n0- Preto\n1- Marrom\n2- Vermelho\n3- Laranja\n4- Amarelo\n5- Verde\n6- Azul\n7- Violeta\n8- Cinza\n9- Branco\n10- Ouro\n11- Prata")];
         tolerancia = tolerancias[prompt("Insira a cor da " + (i + 2) + " faixa:\nEscolha entre:\n0- Marrom\n1- Vermelho\n2- Branco\n3- Ouro\n4- Prata")];
-        console.log("Resistência: " + resistencia + "\nTolerância: " + tolerancia);
+        if(resistencia >= 10 ** 6){
+            resistencia /= 10 ** 6;
+            resistencia += " K";
+        } else if(resistencia >= 3){
+            resistencia /= 10 ** 3;
+            resistencia += " M";
+        }
+        console.log("Resistência: " + resistencia + "Ω\nTolerância: " + tolerancia);
     } else {
         console.log("Quantidade de faixas inválida!");
     }
